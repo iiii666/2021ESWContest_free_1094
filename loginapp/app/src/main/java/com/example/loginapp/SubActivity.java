@@ -60,7 +60,7 @@ public class SubActivity extends AppCompatActivity {
 
 
 
-    private String call_num = "01088914665";
+    private String call_num = "01051523372";
 
 
     @SuppressLint("InvalidWakeLockTag")
@@ -244,6 +244,16 @@ public class SubActivity extends AppCompatActivity {
 
                             });
                             ad.show();
+                        }
+                        else if(redata.contains("timeout"))
+                        {
+                            Intent intent3 = getIntent();
+                            String userName = intent3.getStringExtra("userName");
+                            String sos = "살려주세요!위험상황입니다 주소는 :";
+                            String sendmessage = sos+userName;
+                            SmsManager smsManager = SmsManager.getDefault();
+                            smsManager.sendTextMessage(call_num,null,sendmessage,null,null);
+
                         }
                     });
                 }catch (Exception e) {
