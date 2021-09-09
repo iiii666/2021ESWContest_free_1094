@@ -18,9 +18,11 @@ public class Myinfo extends AppCompatActivity {
         String userID = intent3.getStringExtra("userID");
         String userPassword = intent3.getStringExtra("userPassword");
         String userName = intent3.getStringExtra("userName");
+
         info_id=findViewById(R.id.info_id);
         info_pw=findViewById(R.id.info_pw);
         info_add=findViewById(R.id.info_add);
+
 
         info_id.setText(userID);
         info_pw.setText(userPassword);

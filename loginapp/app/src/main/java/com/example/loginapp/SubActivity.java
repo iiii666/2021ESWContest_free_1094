@@ -60,7 +60,7 @@ public class SubActivity extends AppCompatActivity {
 
 
 
-    private String call_num = "01051523372";
+    private String call_num = "";
 
 
     @SuppressLint("InvalidWakeLockTag")
@@ -91,6 +91,7 @@ public class SubActivity extends AppCompatActivity {
                 intent2.putExtra("userPassword",userPassword);
                 intent2.putExtra("userName",userName);
                 startActivity(intent2);
+
             }
         });
         sub_service.setOnClickListener(new View.OnClickListener() {
@@ -107,6 +108,7 @@ public class SubActivity extends AppCompatActivity {
 
 
         String userName = intent.getStringExtra("userName");
+
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
 
@@ -199,6 +201,7 @@ public class SubActivity extends AppCompatActivity {
                     runOnUiThread(() -> {
 
                         if (redata.contains("help")) {
+                            long start = System.currentTimeMillis();
                             AlertDialog.Builder ad = new AlertDialog.Builder(SubActivity.this);
                             ad.setIcon(R.mipmap.ic_launcher);
                             ad.setTitle("위험");
@@ -221,8 +224,10 @@ public class SubActivity extends AppCompatActivity {
                                     String userName = intent3.getStringExtra("userName");
                                     String sos = "살려주세요!위험상황입니다 주소는 :";
                                     String sendmessage = sos+userName;
+
+                                    String userCall = intent3.getStringExtra("userCall");
                                     SmsManager smsManager = SmsManager.getDefault();
-                                    smsManager.sendTextMessage(call_num,null,sendmessage,null,null);
+                                    smsManager.sendTextMessage(userCall,null,sendmessage,null,null);
 
 
                                   //  String tel = "tel:"+call_num;
@@ -249,10 +254,11 @@ public class SubActivity extends AppCompatActivity {
                         {
                             Intent intent3 = getIntent();
                             String userName = intent3.getStringExtra("userName");
+                            String userCall = intent3.getStringExtra("userCall");
                             String sos = "살려주세요!위험상황입니다 주소는 :";
                             String sendmessage = sos+userName;
                             SmsManager smsManager = SmsManager.getDefault();
-                            smsManager.sendTextMessage(call_num,null,sendmessage,null,null);
+                            smsManager.sendTextMessage(userCall,null,sendmessage,null,null);
 
                         }
                     });
