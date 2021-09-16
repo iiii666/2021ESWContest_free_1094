@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@drawable/kakaotalk_20210716_130131343"
-    tools:context=".SubActivity">
+    tools:context=".MainActivity">
 
     <TextView
         android:id="@+id/TextView"

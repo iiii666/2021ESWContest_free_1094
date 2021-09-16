@@ -1,24 +1,12 @@
 package com.example.loginapp;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 
-import android.Manifest;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.location.Address;
-import android.location.Geocoder;
-import android.location.LocationManager;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
@@ -28,11 +16,7 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.IOException;
-import java.util.List;
-import java.util.Locale;
-
-public class AssignActivity extends AppCompatActivity {
+public class RegisterActivity extends AppCompatActivity {
 
     private EditText as_id;
     private EditText as_pw;
@@ -47,7 +31,6 @@ public class AssignActivity extends AppCompatActivity {
         as_pw = findViewById(R.id.as_pw);
         as_add = findViewById(R.id.as_add);
         as_ok = findViewById(R.id.as_ok);
-
         as_call = findViewById(R.id.as_call);
 
         //회원가입 버튼 클릭시 수행
@@ -67,7 +50,7 @@ public class AssignActivity extends AppCompatActivity {
                             boolean success = jsonObject.getBoolean("success");
                             if (success) {
                                 Toast.makeText(getApplicationContext(), "회원 등록에 성공하였습니다", Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(AssignActivity.this, MainActivity.class);
+                                Intent intent = new Intent(RegisterActivity.this, FirstActivity.class);
                                 intent.putExtra("userName",userName);
                                 //Intent intent4 = new Intent(AssignActivity.this, SubActivity.class);
                                 intent.putExtra("userCall",userCall);
@@ -87,7 +70,7 @@ public class AssignActivity extends AppCompatActivity {
                     }
                 };
                 RegisterRequest registerRequest = new RegisterRequest(userID, userPassword, userName, userCall,reponseListener);
-                RequestQueue queue = Volley.newRequestQueue(AssignActivity.this);
+                RequestQueue queue = Volley.newRequestQueue(RegisterActivity.this);
                 queue.add(registerRequest);
             }
         });
