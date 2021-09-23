@@ -38,6 +38,18 @@
         android:textColor="#0B0A0A"
         android:textColorHint="@color/black" />
 
+    <EditText
+        android:id="@+id/et_word"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:hint="위급상황시 사용할 단어 (한글)"
+        android:textColor="#0B0A0A"
+        android:textColorHint="@color/black"
+
+
+        />
+
     <Button
         android:id="@+id/btn_move_lg"
         android:layout_width="257dp"

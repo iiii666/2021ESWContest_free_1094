@@ -94,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
         String userID = intent.getStringExtra("userID");
         String userPassword = intent.getStringExtra("userPassword");
 
-
+        String userWord = intent.getStringExtra("userWord");
         String userName = intent.getStringExtra("userName");
 
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
@@ -108,8 +108,9 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
         thread = new cm_thread();
-        thread.start();
-        OS.println("connect success");
+        thread.start();3333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333
+        OS.println(userWord);
+        //OS.println("connect success");
         Log.d("connect success","connect success");
 
         TextView = (TextView)findViewById(R.id.TextView);
