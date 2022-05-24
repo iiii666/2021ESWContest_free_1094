@@ -10,12 +10,11 @@
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_gravity="center"
         android:layout_width="230dp"
-        android:layout_height="230dp"
-        android:layout_marginTop="90dp"
-        android:src="@drawable/kakaotalk_20210718_174219018"
-        />
+        android:layout_height="236dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/kakaotalk_20210718_174219018" />
 
     <EditText
         android:id="@+id/et_test_id"
@@ -43,12 +42,37 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:hint="위급상황시 사용할 단어 (한글)"
+        android:hint="범죄상황시 사용할 단어(한글)"
         android:textColor="#0B0A0A"
         android:textColorHint="@color/black"
 
 
         />
+
+    <EditText
+        android:id="@+id/et_word2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:hint="화재상황시 사용할 단어(한글)"
+        android:textColor="#0B0A0A"
+        android:textColorHint="@color/black"
+
+
+        />
+
+    <EditText
+        android:id="@+id/et_word3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:hint="건강위급 상황시 사용할 단어 (한글)"
+        android:textColor="#0B0A0A"
+        android:textColorHint="@color/black"
+
+
+        />
+
 
     <Button
         android:id="@+id/btn_move_lg"
@@ -61,7 +85,6 @@
         android:gravity="center"
         android:text="로그인"
         android:textColor="@color/black" />
-
 
     <Button
         android:id="@+id/btn_move_assign"

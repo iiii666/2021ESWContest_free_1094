@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
     private InputStream IS;
     private PrintWriter OS;
     private int port = 9000; //서버랑 꼭 포트 번호 같게 만들어주고
-    private String SERVER_IP = "192.168.0.15";  //서버 아이피 주소 적어주세요!
+    private String SERVER_IP = "192.168.137.9";  //서버 아이피 주소 적어주세요!
 
 
 
@@ -108,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
         thread = new cm_thread();
-        thread.start();3333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333
+        thread.start();
         OS.println(userWord);
         //OS.println("connect success");
         Log.d("connect success","connect success");
@@ -191,6 +191,8 @@ public class MainActivity extends AppCompatActivity {
 
                         if (redata.contains("help")) {
 
+
+
                             AlertDialog.Builder ad = new AlertDialog.Builder(MainActivity.this);
                             ad.setIcon(R.mipmap.ic_launcher);
                             ad.setTitle("위험");
@@ -206,12 +208,19 @@ public class MainActivity extends AppCompatActivity {
                             ad.setPositiveButton("네", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
-                                    OS.println("1");//위험상황 맞으면 1보냄
+                                    String result="";
+                                    if(redata.contains("crime"))
+                                        result = "범죄";
+                                    else if(redata.contains("fire"))
+                                        result = "화재";
+                                    else if(redata.contains("health"))
+                                        result = "건강위험";
+                                    OS.println(result);//위험상황 맞으면 1보냄
                                     
 //                                    OS.close();
                                     Intent intent3 = getIntent();
                                     String userName = intent3.getStringExtra("userName");
-                                    String sos = "살려주세요!위험상황입니다 주소는 :";
+                                    String sos = "살려주세요!! "+result+"상황입니다 ! 주소는";
                                     String sendmessage = sos+userName;
 
                                     String userCall = intent3.getStringExtra("userCall");

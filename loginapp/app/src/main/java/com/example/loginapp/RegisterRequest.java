@@ -15,7 +15,7 @@ public class RegisterRequest extends StringRequest {
 
 
 
-    final static private String URL = "http://192.168.0.17/Register.php";
+    final static private String URL = "http://172.20.47.115/Register.php";
 
     private Map<String, String> map;
 

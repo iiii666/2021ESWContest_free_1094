@@ -22,7 +22,7 @@ public class FirstActivity extends AppCompatActivity {
     private EditText et_test_id;
     private EditText et_test_pw;
     private Button btn_move_lg,btn_move_assign;
-    private EditText et_word;
+    private EditText et_word,et_word2,et_word3;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +39,9 @@ public class FirstActivity extends AppCompatActivity {
         btn_move_lg=findViewById(R.id.btn_move_lg);
         btn_move_assign=findViewById(R.id.btn_move_assign);
         et_word = findViewById(R.id.et_word);
+        et_word2 = findViewById(R.id.et_word2);
+        et_word3 = findViewById(R.id.et_word3);
+
         btn_move_assign.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -52,7 +55,10 @@ public class FirstActivity extends AppCompatActivity {
 
                 String userID = et_test_id.getText().toString();
                 String userPassword = et_test_pw.getText().toString();
-                String userWord = et_word.getText().toString();
+                String userWord1 = et_word.getText().toString();
+                String userWord2 = et_word2.getText().toString();
+                String userWord3 = et_word3.getText().toString();
+                String userWord = userWord1+" "+userWord2+" "+userWord3;
                 Response.Listener<String> responseListener = new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
